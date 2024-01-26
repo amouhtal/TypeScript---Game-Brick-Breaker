@@ -33,9 +33,14 @@ function setGameWin(view: CanvasView) {
 function gameLoop(
     view: CanvasView,
     bricks: Brick[],
-    paddle: Paddle,
-    ball: Ball
-) {}
+    // paddle: Paddle,
+    // ball: Ball
+) {
+    view.clear();
+    view.drawBricks(bricks);
+
+    requestAnimationFrame(()=> gameLoop(view, bricks))
+}
 
 // create a new view
 
