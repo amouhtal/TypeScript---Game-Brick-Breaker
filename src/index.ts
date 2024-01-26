@@ -2,7 +2,7 @@ import { CanvasView } from "./view/CanvasView";
 import { Ball } from "./sprites/Ball";
 import { Brick } from "./sprites/Brick";
 import { Paddle } from "./sprites/Paddle";
-
+import { createBricks } from "./helpers";
 import PADDLE_IMAGE from "./images/paddle.png";
 import BALL_IMAGE from "./images/ball.png";
 
@@ -17,17 +17,16 @@ import {
     BALL_STARTY,
 } from "./setup";
 
-
 let gameOver = false;
 let score = 0;
 
-function setGameOver(view: CanvasView){
-    view.drawInfo('Game Ovet!');
+function setGameOver(view: CanvasView) {
+    view.drawInfo("Game Ovet!");
     gameOver = false;
 }
 
-function setGameWin(view: CanvasView){
-    view.drawInfo('Game Won!');
+function setGameWin(view: CanvasView) {
+    view.drawInfo("Game Won!");
     gameOver = false;
 }
 
@@ -36,21 +35,12 @@ function gameLoop(
     bricks: Brick[],
     paddle: Paddle,
     ball: Ball
-){
-
-}
-
-function startGame(view: CanvasView){
-
-}
+) {}
 
 // create a new view
 
-const view = new CanvasView('#playField');
+const view = new CanvasView("#playField");
 view.initStartButton(startGame);
-
-import { createBricks } from "./helpers";
-import { CanvasView } from "./view/CanvasView";
 
 function startGame(view: CanvasView) {
     // reset display
@@ -62,5 +52,4 @@ function startGame(view: CanvasView) {
 
     const bricks = createBricks();
     gameLoop(view, bricks);
-    
 }
