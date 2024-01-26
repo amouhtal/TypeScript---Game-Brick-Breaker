@@ -12,7 +12,7 @@ import {
 
 export function createBricks(): Brick[] {
     return LEVEL.reduce((ack, element, i) => {
-        const row = Math.floor(i + 1) / STAGE_COLS;
+        const row = Math.floor((i + 1) / STAGE_COLS);
         const col = i % STAGE_COLS;
 
         const x = STAGE_PADDING + col * (BRICK_WIDTH + BRICK_PADDING);
@@ -25,10 +25,7 @@ export function createBricks(): Brick[] {
             new Brick(
                 BRICK_WIDTH,
                 BRICK_HEIGHT,
-                {
-                    x,
-                    y,
-                },
+                { x, y },
                 BRICK_ENERGY[element],
                 BRICK_IMAGES[element]
             ),
