@@ -1,5 +1,6 @@
+// Types
 import { Brick } from "../sprites/Brick";
-import { Paddle } from "~/sprites/Paddle";
+import { Paddle } from "../sprites/Paddle";
 import { Ball } from "../sprites/Ball";
 
 export class CanvasView {
@@ -33,8 +34,9 @@ export class CanvasView {
         if (this.info) this.info.innerHTML = text;
     }
 
-    drawSprite(brick: Brick | Paddle): void {
+    drawSprite(brick: Brick | Paddle | Ball): void {
         if (!brick) return;
+
         this.context?.drawImage(
             brick.image,
             brick.pos.x,

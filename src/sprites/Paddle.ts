@@ -13,7 +13,11 @@ export class Paddle {
         image: string
     ) {
         this.speed = speed;
-        this.paddleWidth = paddleHeight;
+        this.paddleWidth = paddleWidth;
+        this.paddleHeight = paddleHeight;
+        this.position = position;
+        this.moveLeft = false;
+        this.moveRight = false;
         this.paddleImage.src = image;
 
         // Event Listeners
@@ -42,9 +46,10 @@ export class Paddle {
         return this.moveLeft;
     }
 
-    get isMovingRight(): boolean{
+    get isMovingRight(): boolean {
         return this.moveRight;
     }
+
     movePaddle(): void {
         if (this.moveLeft) this.pos.x -= this.speed;
         if (this.moveRight) this.pos.x += this.speed;
@@ -53,7 +58,6 @@ export class Paddle {
     handleKeyUp = (e: KeyboardEvent): void => {
         if (e.code === "ArrowLeft" || e.key === "ArrowLeft")
             this.moveLeft = false;
-
         if (e.code === "ArrowRight" || e.key === "ArrowRight")
             this.moveRight = false;
     };
@@ -64,6 +68,4 @@ export class Paddle {
         if (e.code === "ArrowRight" || e.key === "ArrowRight")
             this.moveRight = true;
     };
-
-
 }
